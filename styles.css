@@ -71,8 +71,10 @@
                 /*color: #ce132eff;*/
                 color: white;
                 font-weight: bold;
-                font-size: 50px;
+                font-size: '50px';
                 white-space: nowrap;
+                position: fixed;
+                bottom: 0;
             }
             Heading2 {
 
