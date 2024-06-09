@@ -1,11 +1,4 @@
-            @font-face {
-                font-family: "FNER";
-                src: url("Metropolis-Regular.otf");
-            }
-            @font-face {
-                font-family: "BRfontFace";
-                src: url("Montserrat.ttf");
-            }
+
             body {
                 display:flex;
                 background-color: black;
