@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>British Railway | Buy Cheap Train Tickets</title>
+        <link rel="icon" type="image/x-icon" href="BRticketingfavicon.png">
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <script>
+            /*let GBP = new Intl.NumberFormat('en-GB', {
+                style: 'currency',
+                currency:'GBP',
+            });
+            var origin = "Avonhill"
+            var destination = ""
+            var stationCost = 1.15
+            var REmultiplier = 1
+            var EXmultiplier = 1.5
+            var SFmultiplier = 1.25
+            var SHmultiplier = 0.9
+            var PeakMultiplier = 1.3
+            var FirstMultiplier = 1.8
+            var destList = null
+            var originList = null
+            var finalPrice = null 
+            var counter = 0
+            const Base = ''
+
+            const twoThirds = 2/3 
+
+            const ML = ['Norrington','Stirling Street','Hulme Heath','Astley','Forestdale','Freston Junction','St James Park','Leaton','Bawtry Road','Woodham','Belmond Green','Rowton','Fleetwood','Thornfield','Union Street','Avonhill']
+            const MBtoAH = ['Mill Bridge','Northcote','Elmtree House','Fortis Green','Henley Park','Leaton','Bawtry Road','Woodham','Belmond Green','Rowton','Fleetwood','Thornfield','Union Street','Avonhill']
+            const MBtoNH = ['Mill Bridge','Northcote','Elmtree House','Fortis Green','Henley Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow Beach','Victoria Docks','Newhurst']
+            const NTtoNH = ['Norrington','Stirling Street','Hulme Heath','Astley','Forestdale','Freston Junction','St James Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow Beach','Victoria Docks','Newhurst']
+            const NTtoAD = ['Norrington','Stirling Street','Hulme Heath','Astley','Forestdale','Freston Junction','St James Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow','Russell Lane','Osidge Hill','Ashdean Bridge','Ashdean']
+            const MBtoAD = ['Mill Bridge','Northcote','Elmtree House','Fortis Green','Henley Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow','Russell Lane','Osidge Hill','Ashdean Bridge','Ashdean']
+            const NHtoAD = ['Newhurst','Victoria Docks','Longbow','Russell Lane','Osidge Hill','Ashdean Bridge','Ashdean']
+            const NHtoFE = ['Newhurst','Victoria Docks','Longbow Beach','Abbey Road','Rosebury Park','Arkley','Fayre']
+            const VHtoFE = ['Victoria Harbour','Victoria Docks','Longbow Beach','Abbey Road','Rosebury Park','Arkley','Fayre']
+            const ADtoFE = ['Ashdean','Ashdean Bridge','Osidge Hill','Russell Lane','Longbow','Abbey Road','Rosebury Park','Arkley','Fayre']
+            const MBtoVH = ['Mill Bridge','Northcote','Elmtree House','Fortis Green','Henley Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow Beach','Victoria Docks','Victoria Harbour']
+            const NTtoVH = ['Norrington','Stirling Street','Hulme Heath','Astley','Forestdale','Freston Junction','St James Park','Leaton','Meryon','Whetstone','Abbey Road','Longbow Beach','Victoria Docks','Victoria Harbour']
+            
+            const routes = [ML,MBtoAH,MBtoAD,MBtoNH,NTtoAD,NTtoNH,NHtoAD,NHtoFE,VHtoFE,ADtoFE,MBtoVH,NTtoVH]
+            const interchanges = ['Leaton','Avonhill','Victoria Docks','Abbey Road']
+
+            const Express = ['Mill Bridge','Fortis Green','Leaton','Norrington','Hulme Heath','Freston Junction','Belmond Green','Fleetwood','Avonhill','Abbey Road','Victoria Docks','Newhurst']
+            const Semi = ['Abbey Road','Ashdean','Astley','Avonhill','Bawtry Road','Belmond Green','Elmtree House','Fayre','Fleetwood','Forestdale','Fortis Green','Freston Junction','Henley Park','Hulme Heath','Leaton','Longbow','Meryon','Mill Bridge','Newhurst','Norrington','Northcote','Osidge Hill','Rosebury Park','Rowton','Russell Lane','St James Park','Thornfield','Union Street','Victoria Docks','Whetstone','Woodham']
+            const Shuttle = ['Longbow','Victoria Docks','Newhurst','Victoria Harbour']
+
+            const stations = ['Abbey Road','Arkley','Ashdean','Ashdean Bridge','Astley','Avonhill','Bawtry Road','Belmond Green','Broomfield','Elmtree House','Fayre','Fleetwood','Forestdale','Fortis Green','Freston Junction','Henley Park','Hulme Heath','Leaton','Longbow','Longbow Beach','Meryon','Mill Bridge','Newhurst','Norrington','Northcote','Osidge Hill','Rosebury Park','Rowton','Russell Lane','Stirling Street','St James Park','Thornfield','Union Street','Victoria Docks','Victoria Harbour','Whetstone','Woodham']
+            const railcards = {'None':1,'16-25 Railcard':2/3,"Family and Friends Railcard":2/3,'Two Together Railcard':2/3,'Senior Railcard':2/3,'26-30 Railcard':2/3,'Network Railcard':2/3,'Disabled Persons Railcard':2/3,'Veterans Railcard':2/3,'16-17 Saver':0.5,}
+            const RailcardKeys = Object.keys(railcards)
+            
+
+            var cellCounter = 0;
+            var rowCounter = 0;
+            var body = document.getElementsByTagName("body");
+            var table = document.createElement("table")
+            document.addEventListener('DOMContentLoaded', function() {
+                var heading = document.getElementById('MainHeading');
+                var text1 = 'Welcome to '
+                heading.innerHTML = text1.concat(origin,': Touch screen to start')
+                document.addEventListener('click', onStartClick);
+            })
+            function onStartClick(event) {
+                table.style.display = ''
+                var OperatorImg = document.getElementById('OperatorImg');
+                var HeadingTxt = document.getElementById('MainHeading');
+                HeadingTxt.innerHTML = 'Select Action';
+                OperatorImg.style.display = 'none';
+                document.removeEventListener('click', onStartClick);
+                var row = table.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                button1 = document.createElement("button");
+                button1.id = "Buy";
+                button1.innerHTML = "Buy Tickets";
+                button1.className = "Btn1";
+                cell1.appendChild(button1);
+
+                button2 = document.createElement("button");
+                button2.id = "Collect";
+                button2.innerHTML = "Collect Tickets";
+                button2.className = "Btn1";
+                cell2.appendChild(button2);
+                
+                
+                var row2 = table.insertRow(1);
+                var cell3 = row2.insertCell(0);
+                var cell4 = row2.insertCell(1);
+
+                button3 = document.createElement("button");
+                button3.id = "SmartCard";
+                button3.innerHTML = "Top Up SmartCard";
+                button3.className = "Btn1";
+                cell3.appendChild(button3);
+
+                button4 = document.createElement("button");
+                button4.id = "Times";
+                button4.innerHTML = "Train Times";
+                button4.className = "Btn1";
+                cell4.appendChild(button4);
+
+                document.body.appendChild(table);
+                document.getElementById("Buy").addEventListener('click',onBuyClick);
+            }
+            function paymentOptions(){
+                baseStr = ''
+                alert(baseStr.concat("Choose option, Cost: "))
+            }
+            function calculatePricing(gap){
+                console.log(dropRC.options[dropRC.selectedIndex].text)
+                console.log(gap)
+                var railcardName = dropRC.options[dropRC.selectedIndex].text
+                var ChildRailcard = 1
+                var railcardMultiplier = dropRC.value
+                var numberOfChildren = ChildEntry.value
+                var numberOfAdults = AdultEntry.value
+                if (railcardName == "Family and Friends Railcard"){
+                    if (numberOfAdults != 0 && numberOfChildren !=0){
+                        ChildRailcard = 0.4
+                    }
+                    else{
+                        railcardMultiplier = 1
+                    }
+                    
+                }
+
+                REchildCost = numberOfChildren * gap * stationCost * REmultiplier * ChildRailcard * 0.5
+                REadultCost = numberOfAdults * gap * stationCost * REmultiplier * railcardMultiplier
+
+                REcost = REadultCost + REchildCost
+                if (Express.includes(destination) && Express.includes(origin)){
+                    var EXcost = REcost * EXmultiplier
+                }
+                else{
+                    var EXcost=0.1
+                }
+                if (Semi.includes(destination) && Semi.includes(origin)){
+                    var SFcost = REcost * SFmultiplier
+                }
+                else{
+                    var SFcost=0.1
+                }
+                if (Shuttle.includes(destination) && Shuttle.includes(origin)){
+                    var SHcost = REcost * SHmultiplier
+                }
+                else{
+                    var SHcost=0.1
+                }
+                return [REcost,EXcost,SFcost,SHcost]
+            }
+            function generatePricing(){
+                counter = counter + 1
+                destination = dropSl.value
+                HeadingElement.innerHTML = origin.concat(' -> ', destination)
+                var noChange = false
+                var gap = 0
+                var gap1 = 0
+                var gap2 = 0
+                
+                for (x in routes){
+                    list = routes[x]
+                    if (list.includes(destination) && list.includes(origin)){
+                        if (list.indexOf(destination) > list.indexOf(origin)){
+                            gap = list.indexOf(destination) - list.indexOf(origin)
+                        }
+                        else{
+                            gap = list.indexOf(origin) - list.indexOf(destination)
+                        }
+                        noChange = true
+                        break
+                    }
+                }
+                if (noChange == true){
+                    var RE
+                    var EX
+                    var SF
+                    var SH
+
+                    var [RE,EX,SF,SH] = calculatePricing(gap)
+                    var PeakRE = RE * PeakMultiplier
+                    var FirstEX = EX * FirstMultiplier
+                    var PeakEX = EX * PeakMultiplier
+                    var PeakFirstEX = FirstEX * PeakMultiplier
+                    var PeakSF = SF * PeakMultiplier
+                    var PeakSH = SH * PeakMultiplier
+                }
+                else{
+                    for (x in routes){
+                        list = routes[x]
+                        
+                        if (list.includes(origin) && originList == null){
+                            originList = routes[x]
+                        }
+                        if (list.includes(destination) && destList == null){
+                            destList = routes[x]
+                        }
+                        if ((destList !=null)&&(originList != null)){
+                            break
+                        }
+                    }
+                    for (x in interchanges){
+                        inter = interchanges[x]
+                        if (originList.includes(inter) && destList.includes(inter)){
+                            if (originList.indexOf(inter) > originList.indexOf(origin)){
+                                gap1 = originList.indexOf(inter) - originList.indexOf(origin)
+                            }
+                            else{
+                                gap1 = originList.indexOf(origin) - originList.indexOf(inter)
+                            }
+                            if (destList.indexOf(inter) > destList.indexOf(destination)){
+                                gap2 = destList.indexOf(inter) - destList.indexOf(destination)
+                            }
+                            else{
+                                gap2 = destList.indexOf(destination) - destList.indexOf(inter)
+                            }
+                            gap = gap1 + gap2
+                            console.log(gap)
+                            var RE
+                            var EX
+                            var SF
+                            var SH
+
+                            var [RE,EX,SF,SH] = calculatePricing(gap)
+                            var PeakRE = RE * PeakMultiplier
+                            var FirstEX = EX * FirstMultiplier
+                            var PeakEX = EX * PeakMultiplier
+                            var PeakFirstEX = FirstEX * PeakMultiplier
+                            var PeakSF = SF * PeakMultiplier
+                            var PeakSH = SH * PeakMultiplier
+                            break
+                        }
+                    }
+                    
+                }
+                if (counter > 1){
+                    element = document.getElementById('table2')
+                    element.remove()
+                }
+                var table2 = document.createElement('table')
+                table2.cellPadding = '10px'
+                table2.id = 'table2'
+                var RErow = table2.insertRow(0)
+                var REcell1 = RErow.insertCell(0)
+                var REcell2 = RErow.insertCell(1)
+                var EXrow = table2.insertRow(1)
+                var EXcell1 = EXrow.insertCell(0)
+                var EXcell2 = EXrow.insertCell(1)
+                var EXrow2 = table2.insertRow(2)
+                var EXcell3 = EXrow2.insertCell(0)
+                var EXcell4 = EXrow2.insertCell(1)
+                var SFrow = table2.insertRow(3)
+                var SFcell1 = SFrow.insertCell(0)
+                var SFcell2 = SFrow.insertCell(1)
+                var SHrow = table2.insertRow(4)
+                var SHcell1 = SHrow.insertCell(0)
+                var SHcell2 = SHrow.insertCell(1)
+
+
+                var ServiceString = origin.concat(' -> ',destination)
+
+                if (RE != 0.1){
+                var formattedRE = GBP.format(RE)
+                var formattedPeakRE = GBP.format(PeakRE)
+                }
+                else{
+                    var formattedRE = 'Unavailable'
+                    var formattedPeakRE = 'Unavailable'
+                }
+                if (EX !=0.1){
+                    var formattedEX = GBP.format(EX)
+                    var formattedFirstEX = GBP.format(FirstEX)
+                    var formattedPeakEX = GBP.format(PeakEX)
+                    var formattedPeakFirstEX = GBP.format(PeakFirstEX)
+                }
+                else{
+                    var formattedEX = 'Unavailable'
+                    var formattedFirstEX = 'Unavailable'
+                    var formattedPeakEX = 'Unavailable'
+                    var formattedPeakFirstEX = 'Unavailable'
+                }
+                if (SF != 0.1){
+                    var formattedSF = GBP.format(SF)
+                    var formattedPeakSF = GBP.format(PeakSF)
+                }
+                else{
+                    var formattedSF = 'Unavailable'
+                    var formattedPeakSF = 'Unavailable'
+                }
+                if (SH != 0.1){
+                    var formattedSH = GBP.format(SH)
+                    var formattedPeakSH = GBP.format(PeakSH)
+                }
+                else{
+                    var formattedSH = 'Unavailable'
+                    var formattedPeakSH = 'Unavailable'
+                }
+
+                var REStr1 = Base.concat("Regional Off Peak | ", formattedRE)
+                var REStr2 = Base.concat("Regional Peak | ", formattedPeakRE)
+
+                var EXStr1 = Base.concat("InterCity Standard | ", formattedEX)
+                var EXStr2 = Base.concat("InterCity First | ", formattedFirstEX)
+
+                var EXStr3 = Base.concat("InterCity Standard Peak | ", formattedPeakEX)
+                var EXStr4 = Base.concat("InterCity First Peak | ", formattedPeakFirstEX)
+
+                var SFStr1 = Base.concat("SemiFast Off Peak | ", formattedSF)
+                var SFStr2 = Base.concat("SemiFast Peak | ", formattedPeakSF)
+
+                var SHStr1 = Base.concat("Shuttle Off Peak | ", formattedSH)
+                var SHStr2 = Base.concat("Shuttle Peak | ", formattedPeakSH)
+                
+                REBtn1 = document.createElement('button')
+                REBtn2 = document.createElement('button')
+                EXBtn1 = document.createElement('button')
+                EXBtn2 = document.createElement('button')
+                EXBtn3 = document.createElement('button')
+                EXBtn4 = document.createElement('button')
+                SFBtn1 = document.createElement('button')
+                SFBtn2 = document.createElement('button')
+                SHBtn1 = document.createElement('button')
+                SHBtn2 = document.createElement('button')
+
+                console.log('Regional: '+formattedRE)
+                console.log('Express: '+formattedEX)
+                console.log('Semifast: '+formattedSF)
+                console.log('Shuttle: '+formattedSH)
+
+                REBtn1.className = 'Btn5'
+                REBtn2.className = 'Btn5'
+
+                REBtn1.innerHTML = REStr1
+                REBtn2.innerHTML = REStr2
+
+                EXBtn1.className = 'Btn5'
+                EXBtn2.className = 'Btn5'
+
+                EXBtn1.innerHTML = EXStr1
+                EXBtn2.innerHTML = EXStr2
+
+                EXBtn3.className = 'Btn5'
+                EXBtn4.className = 'Btn5'
+
+                EXBtn3.innerHTML = EXStr3
+                EXBtn4.innerHTML = EXStr4
+
+                SFBtn1.className = 'Btn5'
+                SFBtn2.className = 'Btn5'
+
+                SFBtn1.innerHTML = SFStr1
+                SFBtn2.innerHTML = SFStr2
+
+                SHBtn1.className = 'Btn5'
+                SHBtn2.className = 'Btn5'
+
+                SHBtn1.innerHTML = SHStr1
+                SHBtn2.innerHTML = SHStr2
+
+
+                REcell1.appendChild(REBtn1)
+                REcell2.appendChild(REBtn2)
+                EXcell1.appendChild(EXBtn1)
+                EXcell2.appendChild(EXBtn2)
+                EXcell3.appendChild(EXBtn3)
+                EXcell4.appendChild(EXBtn4)
+                SFcell1.appendChild(SFBtn1)
+                SFcell2.appendChild(SFBtn2)
+                SHcell1.appendChild(SHBtn1)
+                SHcell2.appendChild(SHBtn2)
+
+                table2.className = 'Btn2'
+                reqSection = document.getElementById('fullyCentered')
+                reqSection.appendChild(table2)
+                
+            }
+            function onBuyClick(){
+                HeadingElement = document.getElementById('MainHeading')
+                table.style.display = 'none';
+                AdultEntry = document.createElement("INPUT");
+                AdultEntry.setAttribute("type", "text");
+                ChildEntry = document.createElement("INPUT");
+                ChildEntry.setAttribute("type","text")
+                AdultEntry.placeholder = 'Number of Adults...'
+                ChildEntry.placeholder = 'Number of Children...'
+                dropSl = document.createElement("select")
+                dropRC = document.createElement("select")
+                dropSl.id = "stationDrop"
+                dropRC.id = 'RailCardDrop'
+                dropSl.name = "stationDrop"
+                dropRC.name = 'RailCardDrop'
+                dropSl.className = 'Btn4'
+                dropRC.className = 'Btn4'
+                AdultEntry.className = 'Btn4'
+                ChildEntry.className = 'Btn4'
+                document.body.appendChild(dropRC)
+                document.body.appendChild(dropSl)
+                document.body.appendChild(AdultEntry)
+                document.body.appendChild(ChildEntry)
+                defaultOp = document.createElement('option')
+                defaultOp.value = ''
+                defaultOp.innerHTML = 'Select Destination...'
+                defaultRC = document.createElement('option')
+                defaultRC.value = 1
+                defaultRC.innerHTML = 'Select Railcard...'
+                dropSl.appendChild(defaultOp)
+                dropRC.appendChild(defaultRC)
+                for (x in stations){
+                    y = document.createElement("option")
+                    y.value = stations[x]
+                    y.innerHTML = stations[x]
+                    dropSl.appendChild(y)
+                }
+                for (x in railcards){
+                    y = document.createElement("option")
+                    console.log(x)
+                    y.value = railcards[x]
+                    y.innerHTML = x
+                    dropRC.appendChild(y)
+                }
+                dropSl.addEventListener('change', generatePricing)
+                dropRC.addEventListener('change', generatePricing)
+                AdultEntry.addEventListener('change', generatePricing)
+                ChildEntry.addEventListener('change', generatePricing)
+    }*/
+                
+            
+        </script>
+        <style>
+            @font-face {
+                font-family: "FNER";
+                src: url("Metropolis-Regular.otf");
+            }
+            @font-face {
+                font-family: "BRfontFace";
+                src: url("Montserrat.ttf");
+            }
+            body {
+                display:flex;
+                background: url("background.png");
+                background-size: cover;
+                align-content: center;
+                justify-content: center;
+                overflow-y: hidden;
+                overflow-x: hidden;
+            }
+            select {
+                width:400px;
+                height: 50px;
+            }
+            p {
+                color: green;
+            }
+            .Btn1 {
+                width: 300px;
+                height: 400px;
+                font-size: 50px;
+                font-family: "BRfontFace", sans-serif;
+                border-radius: 20px;
+                border-width: 2px
+            }
+            .Btn2 {
+                width: 200px;
+                height: 100px;
+                font-size: 35px;
+                font-family: "BRfontFace", sans-serif;
+                border-radius: 20px;
+                
+            
+            }
+            .Btn3 {
+                width: 200px;
+                height: 100px;
+                font-size: 35px;
+                font-family: "BRfontFace", sans-serif;
+                position: fixed;
+                bottom: 20px;
+                border-radius: 20px;
+                border-width: 0.5px;
+                
+            }
+            .Btn4 {
+                font-family: "BRfontface", sans-serif;
+                padding: 10px;
+                border-radius: 20px;
+                border-width: 0.5px;
+            }
+            .Btn5 {
+                width: 500px;
+                height: 60px;
+                font-size: 25px;
+                font-family: "BRfontFace", sans-serif;
+                background-color: white;
+                border-radius: 25px;
+                
+            }
+            .Heading1 {
+                display: flex;
+                font-family: "BRfontFace";
+                /*color: #ce132eff;*/
+                color: white;
+                font-weight: bold;
+                font-size: 50px;
+                white-space: nowrap;
+            }
+            .Heading2 {
+
+                display: flex;
+                font-family: "BRfontFace";
+                font-weight: bold;
+                color: black;
+                font-size: 50px;
+
+            }
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                
+            }
+        </style>
+        <section id="fullyCentered" class="center">
+            <img id="OperatorImg" src="BRLogoMachine.png">
+        </section>
+        <section class="footer">
+            <p id="MainHeading" class="Heading1">Welcome to x: Touch screen to start</p>
+        </section>
+
+        
+    </body>
+</html>
