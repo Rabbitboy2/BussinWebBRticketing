@@ -22,7 +22,7 @@
             p {
                 color: green;
             }
-            .Btn1 {
+            Btn1 {
                 width: 300px;
                 height: 400px;
                 font-size: 50px;
@@ -30,7 +30,7 @@
                 border-radius: 20px;
                 border-width: 2px
             }
-            .Btn2 {
+            Btn2 {
                 width: 200px;
                 height: 100px;
                 font-size: 35px;
@@ -39,7 +39,7 @@
                 
             
             }
-            .Btn3 {
+            Btn3 {
                 width: 200px;
                 height: 100px;
                 font-size: 35px;
@@ -50,13 +50,13 @@
                 border-width: 0.5px;
                 
             }
-            .Btn4 {
+            Btn4 {
                 font-family: "BRfontface", sans-serif;
                 padding: 10px;
                 border-radius: 20px;
                 border-width: 0.5px;
             }
-            .Btn5 {
+            Btn5 {
                 width: 500px;
                 height: 60px;
                 font-size: 25px;
@@ -74,7 +74,7 @@
                 font-size: 50px;
                 white-space: nowrap;
             }
-            .Heading2 {
+            Heading2 {
 
                 display: flex;
                 font-family: "BRfontFace";
@@ -83,7 +83,7 @@
                 font-size: 50px;
 
             }
-            .center {
+            center {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -93,7 +93,7 @@
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
             }
-            .footer {
+            footer {
                 position: fixed;
                 bottom: 0;
                 
